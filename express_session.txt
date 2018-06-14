@@ -1,0 +1,18 @@
+Sessions
+
+// install express-session
+npm install express-session
+
+// -------- EXAMPLE ----- //
+
+//Set Session
+
+var session = required('express-session') // to initialize
+
+
+//Middleware to use the session
+app.use(session({
+	secret: 'cat', //this is called a hash, case sensitive, 
+	resave: false,
+	saveUninitialized: false
+}))

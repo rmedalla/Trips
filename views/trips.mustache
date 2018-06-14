@@ -1,0 +1,50 @@
+<html>
+<head>
+</head>
+
+<body>
+
+    <h1> Hello, {{username}}</h1>
+    <ul>
+    <li> <a href="home">Home</a></li>
+    <li> <a href="register">Register</a></li>
+    <li> <a href="welcome">Welcome</a></li>
+    <li> <a href="login">Login</a></li>
+    </ul>
+        
+    <form action="/trips" method="post">
+        <input type="text" name="city">
+        <input type="date" name="departureDate">
+        <input type="date" name="returnDate">
+        <input type="submit">
+    </form>
+
+<h3>List of Trips</h3>
+
+<!-- running a loop on triplist -->
+<ul>
+
+{{! Starting point }}
+{{#triplist}}
+<br>
+    <li>
+    City: {{city}} <br>
+    Departure: {{departureDate}} <br>
+    Return: {{returnDate}} <br>
+
+    <form action='/updatedTrips' method='post'>
+        <input type="hidden" name="tripId" value='{{tripId}}'>
+        <input type="submit" value="Delete">
+    </form>
+    </li>
+
+    
+<br>
+
+{{! Ending point }}
+{{/triplist}}
+</ul>
+
+</body>
+
+</html>
